@@ -21,7 +21,6 @@ describe("Get all history (GET)", function() {
     it("Return body should have data in array format", function(done) {
         request(url, function(error, response, body) {
             body = JSON.parse(body);
-            // expect(Object.keys(body.data)).to.equal("n1,n2,operation,result");
             expect(body.data).to.be.an("array");
             done();
         });
