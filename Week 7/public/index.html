@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo left">Basic Calculator</a>
+            <ul id="nav-mobile" class="right ">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col s8" style="margin-top: 1em;">
+            <div class="row">
+                <div class="input-field col offset-s1 s10">
+                    <input placeholder="n1" id="number1" name="number1" type="number" class="validate">
+                    <label for="number1">Input number 1</label>
+                </div>
+                <div class="input-field col offset-s1 s10">
+                    <input placeholder="n2" id="number2" name="number2" type="number" class="validate">
+                    <label for="number2">Input number 2</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col offset-s1 s10">
+                    <div class="col s6">
+                        <label>
+                            <input name="math" type="radio" value="add" checked />
+                            <span>Addition<span>
+                        </label>
+                    </div>
+                    <div class="col s6">
+                        <label>
+                            <input name="math" type="radio" value="sub" />
+                            <span>Subtraction</span>
+                        </label>
+                    </div>
+                    <div class="col s6">
+                        <label>
+                            <input name="math" type="radio" value="mul" />
+                            <span>Multiplication<span>
+                        </label>
+                    </div>
+                    <div class="col s6">
+                        <label>
+                            <input name="math" type="radio" value="div" />
+                            <span>Division<span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row ">
+                <div class="col offset-s1 s10 right-align">
+                    <div>
+                        <h5>Result</h5>
+                    </div>
+                    <div>
+                        <h3 id="result">0</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col offset-s1 s10 right-align">
+                    <button style="margin-right: 1em;" class="waves-effect waves-light btn" id="clearBtn">Clear</a>
+                        <button style="margin-left: 1em;" class="waves-effect waves-light btn" id="calBtn">Cal</a>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col offset-s1 s10 right-align">
+                    <button class="waves-effect waves-light btn" id="submitBtn" disabled>Save</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s4" style="margin-top: 1em;">
+            <h5>Calculation history</h5>
+            <h6>Most recent</h6>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N1</th>
+                        <th>N2</th>
+                        <th>Operation</th>
+                        <th>Result</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script>
+        $(document).ready(function () {
+            getTop10Calculation();
+        })
+    </script>
+</body>
+
+</html>
